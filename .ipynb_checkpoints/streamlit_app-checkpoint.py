@@ -30,7 +30,8 @@ def createPlots(df, columnName):
     plt.subplot(1, 2, 1)
     plt.pie(sizes, labels = labels, textprops={'fontsize': 10}, startangle=90, autopct='%1.0f%%', colors=sns.color_palette('Set2'))
     plt.subplot(1, 2, 2)
-    sns.barplot(x = scounts.index, y = scounts.values, palette= 'viridis')
+    p = sns.barplot(x = scounts.index, y = scounts.values, palette= 'viridis')
+    plt.setp(p.get_xticklabels(), rotation=90)
     st.pyplot(fig)
 
     # get value counts and percentages of unique values in column 
