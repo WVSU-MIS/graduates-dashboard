@@ -28,7 +28,7 @@ def createPlots(df, columnName):
     custom_colors = ['tomato', 'cornflowerblue', 'gold', 'orchid', 'green']
     fig = plt.figure(figsize=(12, 4))
     plt.subplot(1, 2, 1)
-    plt.pie(sizes, labels = labels, textprops={'fontsize': 10}, startangle=90, autopct='%1.0f%%', colors=sns.color_palette('Set2'))
+    plt.pie(sizes, labels = labels, textprops={'fontsize': 10}, startangle=140, autopct='%1.0f%%', colors=sns.color_palette('Set2'))
     plt.subplot(1, 2, 2)
     p = sns.barplot(x = scounts.index, y = scounts.values, palette= 'viridis')
     plt.setp(p.get_xticklabels(), rotation=90)
