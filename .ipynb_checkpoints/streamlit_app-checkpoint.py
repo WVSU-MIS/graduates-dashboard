@@ -97,9 +97,9 @@ def app():
         df = loadcsvfile(campus)
         df = filterBy(df, campus)
         
-    if st.button('Distribution By Course'):
+    if st.button('Distribution By College'):
         df = filterBy(df, campus)
-        createPlots(df, 'Course')
+        createPlots(df, 'College')
 
     if st.button('Distribution By College'):
         df = filterBy(df, campus)  
