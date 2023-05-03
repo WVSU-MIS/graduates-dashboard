@@ -79,6 +79,7 @@ def app():
     
     st.subheader("Graduate Employability")
     st.write('Distribution of Respondents by Campus')
+    df = loadcsvfile('All')
     createPlots(df, 'Campus')
     st.write('Filter graduates by campus')
     
