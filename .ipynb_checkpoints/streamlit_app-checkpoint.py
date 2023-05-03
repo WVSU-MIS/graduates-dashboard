@@ -21,7 +21,7 @@ def loadcsvfile(campus):
     return df
 
 def createPlots(df, columnName):
-    st.write('Graduate Distribution by ' + columnName)
+    st.write('Graduates Distribution by ' + columnName)
     scounts=df[columnName].value_counts()
     labels = list(scounts.index)
     sizes = list(scounts.values)
@@ -84,13 +84,14 @@ def app():
     createPlots(df, 'Campus')
     st.write('Filter graduates by campus')
     
-    campus = 'Main'
-    options = ['All', 'Main Campus', 'CAF Campus', 'Calinog Campus', 'Janiuay Campus', 'Lambunao Campus', 'Pototan Campus']
+    campus = 'Main Campus'
+    options =df['Campus'].unique()
     
     selected_option = st.selectbox('Select the campus', options)
-    if selected_option=='All':
+    if selected_option=='Main Campus':
         campus = selected_option
         df = loadcsvfile(campus)
+        df = filterBy(df, campus)
     else:
         campus = selected_option
         df = loadcsvfile(campus)
