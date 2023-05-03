@@ -112,7 +112,7 @@ def app():
 
     if st.button('Distribution By Province'):
         df = filterBy(df, campus)  
-        createPlots(df, 'Province')
+        createPlots(df, 'Province of Origin')
 
         
     if st.button('Distribution By Location of Residence'):
