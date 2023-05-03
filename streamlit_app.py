@@ -101,13 +101,23 @@ def app():
         df = filterBy(df, campus)
         createPlots(df, 'Sex')
 
+    
+    if st.button('Distribution By Civil Status'):
+        df = filterBy(df, campus)  
+        createPlots(df, 'Civil Status')
+
     if st.button('Distribution By College'):
         df = filterBy(df, campus)  
         createPlots(df, 'College')
-    
-    if st.button('Distribution By Campus'):
+
+    if st.button('Distribution By Province'):
         df = filterBy(df, campus)  
-        createPlots(df, 'Campus')
+        createPlots(df, 'Province')
+
+        
+    if st.button('Distribution By Location of Residence'):
+        df = filterBy(df, campus)  
+        createPlots(df, 'LOcation of Residence')
         
     if st.button('Distribution By Employment Status'):
         df = filterBy(df, campus)  
