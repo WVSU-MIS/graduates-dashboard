@@ -112,8 +112,7 @@ def app():
 
     if st.button('Distribution By Province'):
         df = filterBy(df, campus)  
-        createPlots(df, 'Province of Origin')
-
+        createTable(df, 'Province of Origin')
         
     if st.button('Distribution By Location of Residence'):
         df = filterBy(df, campus)  
@@ -121,20 +120,9 @@ def app():
         
     if st.button('Distribution By Employment Status'):
         df = filterBy(df, campus)  
-        createPlots(df, 'Employment Status')
+        createTable(df, 'Employment Status')
     
-    if st.button('Distribution By Status across Course'):
-        df = filterBy(df, campus)  
-        twowayPlot(df, 'Course', 'Status')
-        
-    if st.button('Distribution By Status across Colleges'):
-        df = filterBy(df, campus)  
-        twowayPlot(df, 'College', 'Status')
-        
-    if st.button('Distribution By Status across Campuses'):
-        df = filterBy(df, campus)  
-        twowayPlot(df, 'Campus', 'Status')
-        
+
 #run the app
 if __name__ == "__main__":
     app()
