@@ -71,7 +71,7 @@ def app():
     st.title("Welcome to the 2023 WVSU Graduate Tracer Report")      
     st.subheader("(c) WVSU Management Information System")
                  
-    st.write("This dashboard is managed by: Dr. Namcy Surmieda \nDirector, Office of Student Affairs, osa@wvsu.edu.ph")
+    st.write("This dashboard is managed by: Dr. Nancy S. Surmieda \nDirector, Office of Student Affairs, osa@wvsu.edu.ph")
                  
     st.write("The employability of university graduates can vary depending on a variety of factors, such as their field of study, their level of academic achievement, their relevant work experience, their soft skills, and the current state of the job market.")
 
