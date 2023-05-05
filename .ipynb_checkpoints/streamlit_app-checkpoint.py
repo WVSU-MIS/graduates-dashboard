@@ -15,7 +15,15 @@ def filterBy(df, campus):
         filtered_df = df[df['Campus'] == campus]  
         return filtered_df
 
-def loadcsvfile(campus):
+def filterByYear(df, year):
+    if year=='2016':
+        filtered_df = df[df['Year Graduated'] == year]  
+        return filtered_df
+    else:  
+        filtered_df = df[df['Year Graduated'] == year]  
+        return filtered_df
+    
+def loadcsvfile():
     csvfile = 'graduate-tracer.csv'
     df = pd.read_csv(csvfile, dtype='str', header=0, sep = ",", encoding='latin') 
     return df
@@ -82,21 +90,32 @@ def app():
     
     st.subheader("Graduate Employability")
     st.write('Distribution of Respondents by Campus')
-    df = loadcsvfile('All')
-    createPlots(df, 'Campus')
+    df = loadcsvfile()
+
+    year = '2016'
+    options=df['Year Graduated'].unique()
+    
+    selected_option = st.selectbox('Select the year', options)
+    if selected_option=='2016':
+        year = selected_option
+        df = filterByYear(df, year)
+        createPlots(df, 'Campus')
+    else:
+        campus = selected_option
+        df = filterByYear(df, year)
+        createPlots(df, 'Campus')
+
     st.write('Filter graduates by campus')
     
     campus = 'Main Campus'
-    options =df['Campus'].unique()
+    options=df['Campus'].unique()
     
     selected_option = st.selectbox('Select the campus', options)
     if selected_option=='Main Campus':
         campus = selected_option
-        df = loadcsvfile(campus)
         df = filterBy(df, campus)
     else:
         campus = selected_option
-        df = loadcsvfile(campus)
         df = filterBy(df, campus)
         
     if st.button('Distribution By Sex'):
