@@ -9,6 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 from PIL import Image
 
 df = pd.DataFrame()
+year = ''
 
 def filterBy(df, campus):
     filtered_df = df[df['Campus'] == campus]  
@@ -16,7 +17,9 @@ def filterBy(df, campus):
 
 def filterByYear(df, year):
     filtered_df = df[df['Year Graduated'] == year]  
-    return filtered_df
+    new_df = pd.DataFrame(filtered_df)
+    new_df = new_df.copy().reset_index(drop=True)
+    return new_df
     
 def loadcsvfile():
     csvfile = 'graduate-tracer.csv'
@@ -87,18 +90,17 @@ def app():
     options=df['Year Graduated'].unique()
     
     selected_option = st.selectbox('Select the year', options)
-        if selected_option=='2016':
-            year = selected_option
-            df = filterByYear(df, year)
-            st.write('Selected year is ' + year)
+    if selected_option=='2016':
+        year = selected_option
+        df = filterByYear(df, year)
+        st.write('Selected year is ' + year)
+        st.write(df.head(10))
+    else:
+        campus = selected_option
+        df = filterByYear(df, year)
+        st.write('Selected year is ' + year)
 
-            st.write(df.head(10))
-        else:
-            campus = selected_option
-            df = filterByYear(df, year)
-            st.write('Selected year is ' + year)
-
-            st.write(df.head(10))
+        st.write(df.head(10))
         
     #createPlots(df, 'Campus')
     
