@@ -15,7 +15,7 @@ def filterBy(df, campus):
     return filtered_df
 
 def filterByYear(df, year):
-    filtered_df = df[df['Year Graduated'].astype(int) == int(year)]  
+    filtered_df = df[df['Year Graduated'].astype(str) == year]  
     return filtered_df
     
 def loadcsvfile():
