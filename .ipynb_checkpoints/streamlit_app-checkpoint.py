@@ -15,12 +15,8 @@ def filterBy(df, campus):
     return filtered_df
 
 def filterByYear(df, year):
-    if year=='2016':
-        filtered_df = df[df['Year Graduated'] == year]  
-        return filtered_df
-    else:  
-        filtered_df = df[df['Year Graduated'] == year]  
-        return filtered_df
+    filtered_df = df[df['Year Graduated'].astype(int) == int(year)]  
+    return filtered_df
     
 def loadcsvfile():
     csvfile = 'graduate-tracer.csv'
