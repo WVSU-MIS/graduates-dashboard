@@ -8,6 +8,8 @@ import seaborn as sns
 from sklearn.preprocessing import LabelEncoder
 from PIL import Image
 
+df = pd.DataFrame()
+
 def filterBy(df, campus):
     if campus=='All':
         return df
