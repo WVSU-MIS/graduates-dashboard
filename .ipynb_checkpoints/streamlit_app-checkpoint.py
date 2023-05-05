@@ -11,11 +11,8 @@ from PIL import Image
 df = pd.DataFrame()
 
 def filterBy(df, campus):
-    if campus=='All':
-        return df
-    else:  
-        filtered_df = df[df['Campus'] == campus]  
-        return filtered_df
+    filtered_df = df[df['Campus'] == campus]  
+    return filtered_df
 
 def filterByYear(df, year):
     if year=='2016':
@@ -38,7 +35,8 @@ def createPlots(df, columnName):
     custom_colors = ['tomato', 'cornflowerblue', 'gold', 'orchid', 'green']
     fig = plt.figure(figsize=(12, 4))
     plt.subplot(1, 2, 1)
-    plt.pie(sizes, labels = labels, textprops={'fontsize': 10}, startangle=140, autopct='%1.0f%%', colors=sns.color_palette('Set2'))
+    plt.pie(sizes, labels = labels, textprops={'fontsize': 10}, startangle=140, \
+            autopct='%1.0f%%', colors=sns.color_palette('Set2'))
     plt.subplot(1, 2, 2)
     p = sns.barplot(x = scounts.index, y = scounts.values, palette= 'viridis')
     plt.setp(p.get_xticklabels(), rotation=90)
@@ -100,7 +98,7 @@ def app():
         campus = selected_option
         df = filterByYear(df, year)
         
-    createPlots(df, 'Campus')
+    #createPlots(df, 'Campus')
     
     st.write('Filter graduates by campus')
     campus = 'Main Campus'
