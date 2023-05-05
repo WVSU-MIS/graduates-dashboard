@@ -93,24 +93,21 @@ def app():
     if year=='2016':   
         df = filterByYear(df, year)
         st.write('Selected year is ' + year)
-        st.write(df.head(10))
+        createPlots(df, 'Campus')
     else:
         df = filterByYear(df, year)
         st.write('Selected year is ' + year)
-        st.write(df.head(10))
-        
-    #createPlots(df, 'Campus')
+        createPlots(df, 'Campus')
+    
     
     st.write('Filter graduates by campus')
+    #The main campus is selected by default
     campus = 'Main Campus'
     options=df['Campus'].unique()
-    
-    selected_option = st.selectbox('Select the campus', options)
-    if selected_option=='Main Campus':
-        campus = selected_option
+    campus = st.selectbox('Select the campus', options)
+    if campus=='Main Campus':
         df = filterBy(df, campus)
     else:
-        campus = selected_option
         df = filterBy(df, campus)
         
     if st.button('Distribution By Sex'):
