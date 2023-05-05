@@ -94,9 +94,11 @@ def app():
     if selected_option=='2016':
         year = selected_option
         df = filterByYear(df, year)
+        st.write(df.head(10))
     else:
         campus = selected_option
         df = filterByYear(df, year)
+        st.write(df.head(10))
         
     #createPlots(df, 'Campus')
     
