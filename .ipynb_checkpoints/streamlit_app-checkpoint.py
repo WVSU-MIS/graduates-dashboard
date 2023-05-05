@@ -89,17 +89,14 @@ def app():
     year = '2016'
     options=df['Year Graduated'].unique()
     
-    selected_option = st.selectbox('Select the year', options)
-    if selected_option=='2016':
-        year = selected_option
+    year = st.selectbox('Select the year', options)
+    if year=='2016':   
         df = filterByYear(df, year)
         st.write('Selected year is ' + year)
         st.write(df.head(10))
     else:
-        campus = selected_option
         df = filterByYear(df, year)
         st.write('Selected year is ' + year)
-
         st.write(df.head(10))
         
     #createPlots(df, 'Campus')
