@@ -15,7 +15,7 @@ def filterBy(df, campus):
     return filtered_df
 
 def filterByYear(df, year):
-    filtered_df = df[df['Year Graduated'].astype(str) == year]  
+    filtered_df = df[df['Year Graduated'] == year]  
     return filtered_df
     
 def loadcsvfile():
@@ -90,10 +90,14 @@ def app():
     if selected_option=='2016':
         year = selected_option
         df = filterByYear(df, year)
+        st.write('Selected year is ' + year)
+        
         st.write(df.head(10))
     else:
         campus = selected_option
         df = filterByYear(df, year)
+        st.write('Selected year is ' + year)
+        
         st.write(df.head(10))
         
     #createPlots(df, 'Campus')
