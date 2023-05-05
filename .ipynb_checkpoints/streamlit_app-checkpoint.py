@@ -83,13 +83,8 @@ def app():
                  
     st.write("The employability of university graduates can vary depending on a variety of factors, such as their field of study, their level of academic achievement, their relevant work experience, their soft skills, and the current state of the job market.")
 
-    st.write("The current dataset is taken from the WVSU Graduate Tracer Study as of May 4, 2023.")
-        
-    #create a dataframe
-    df = pd.DataFrame()
-    
+    st.write("The current dataset is taken from the WVSU Graduate Tracer Study as of May 5, 2023.")
     st.subheader("Graduate Employability Report")
-
     df = loadcsvfile()
 
     year = '2016'
