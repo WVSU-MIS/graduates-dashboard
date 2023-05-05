@@ -88,8 +88,8 @@ def app():
     #create a dataframe
     df = pd.DataFrame()
     
-    st.subheader("Graduate Employability")
-    st.write('Distribution of Respondents by Campus')
+    st.subheader("Graduate Employability Report")
+
     df = loadcsvfile()
 
     year = '2016'
@@ -106,7 +106,6 @@ def app():
         createPlots(df, 'Campus')
 
     st.write('Filter graduates by campus')
-    
     campus = 'Main Campus'
     options=df['Campus'].unique()
     
