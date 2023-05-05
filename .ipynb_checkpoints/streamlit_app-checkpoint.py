@@ -96,12 +96,12 @@ def app():
     if selected_option=='2016':
         year = selected_option
         df = filterByYear(df, year)
-        createPlots(df, 'Campus')
     else:
         campus = selected_option
         df = filterByYear(df, year)
-        createPlots(df, 'Campus')
-
+        
+    createPlots(df, 'Campus')
+    
     st.write('Filter graduates by campus')
     campus = 'Main Campus'
     options=df['Campus'].unique()
